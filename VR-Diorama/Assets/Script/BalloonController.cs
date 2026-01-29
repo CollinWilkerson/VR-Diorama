@@ -40,12 +40,14 @@ public class BalloonController : MonoBehaviour
     {
         balloon = Instantiate(balloonPrefab, parentHand);
         balloon.transform.localScale = new Vector3(0.1f, 0.1f, 0.1f);
+        balloon.GetComponent<Rigidbody>().isKinematic = true;
     }
 
     public void ReleaseBalloon()
     {
-        balloon.transform.parent = null;
         Rigidbody rb = balloon.GetComponent<Rigidbody>();
+        rb.isKinematic = false;
+        balloon.transform.parent = null;
         Vector3 force = Vector3.up * floatStrength;
         rb.AddForce(force);
 

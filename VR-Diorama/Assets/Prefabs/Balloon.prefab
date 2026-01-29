@@ -11,7 +11,6 @@ GameObject:
   - component: {fileID: 8749918717361548594}
   - component: {fileID: 7133340309661468164}
   - component: {fileID: 2703950456868912354}
-  - component: {fileID: 5781914006329551042}
   m_Layer: 0
   m_Name: Mesh
   m_TagString: Untagged
@@ -87,27 +86,6 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!135 &5781914006329551042
-SphereCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3586637041563351654}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 0
-  m_ProvidesContacts: 0
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Radius: 0.5
-  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &7337870241038369912
 GameObject:
   m_ObjectHideFlags: 0
@@ -119,6 +97,8 @@ GameObject:
   - component: {fileID: 1784041543998165802}
   - component: {fileID: 6805444177896812983}
   - component: {fileID: 8933634737528023931}
+  - component: {fileID: 3930475994877612592}
+  - component: {fileID: 671191127274829499}
   m_Layer: 0
   m_Name: Balloon
   m_TagString: Untagged
@@ -181,3 +161,40 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6ab83a365acbf394db62290bac1c07f0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  speed: 5
+--- !u!136 &3930475994877612592
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7337870241038369912}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 0.98702073
+  m_Height: 1.991571
+  m_Direction: 1
+  m_Center: {x: 0, y: 0.9974723, z: 0}
+--- !u!114 &671191127274829499
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7337870241038369912}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c4bf30426672f524998784c2d22c7621, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  popEffectPrefab: {fileID: 1329845292236604, guid: 9bba9cf244c53c5439505dfc96fdd11c, type: 3}
