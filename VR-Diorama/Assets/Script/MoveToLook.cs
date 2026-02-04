@@ -1,15 +1,26 @@
 using UnityEngine;
+using TMPro;
 
 public class MoveToLook : MonoBehaviour
 {
     [SerializeField] private LayerMask walkableLayer;
     [SerializeField] private GameObject ground;
+    [Space]
+    [SerializeField] Transform infoBubble;
+
     private RaycastHit hitPoint;
     private Transform mainCamera;
+
+    private TextMeshProUGUI infoText;
 
     private void Start()
     {
         mainCamera = Camera.main.transform;
+
+        if(infoBubble != null)
+        {
+            infoText = GetComponentInChildren<TextMeshProUGUI>();
+        }
     }
 
     private void Update()
@@ -24,9 +35,17 @@ public class MoveToLook : MonoBehaviour
                 RaycastHit hit = hits[i];
                 hitObject = hit.collider.gameObject;
                 if (hitObject == ground)
+            {
+                if (infoBubble != null)
                 {
-                    Debug.Log("Hit (x,y,z): " + hit.point.ToString("F2"));
-                    transform.position = hit.point;
+                    infoText.text = "X:" + hit.point.x.ToString("F2") +
+                                    ", " +
+                                    "Z:" + hit.point.z.ToString("F2");
+
+                    infoBubble.LookAt(mainCamera.position);
+                    infoBubble.Rotate(0, 180f, 0);
+                }
+                transform.position = hit.point;
                 }
             }
         

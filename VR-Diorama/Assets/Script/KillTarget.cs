@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using TMPro;
 
 public class KillTarget : MonoBehaviour
 {
@@ -8,6 +9,8 @@ public class KillTarget : MonoBehaviour
     [SerializeField] private ParticleSystem hitEffect;
     [SerializeField] private GameObject killEffect;
     [SerializeField] private float timeToSelect = 3.0f;
+    [Space]
+    [SerializeField] private TextMeshProUGUI scoreText;
     public int score;
 
     Transform mainCamera;
@@ -18,6 +21,8 @@ public class KillTarget : MonoBehaviour
         mainCamera = Camera.main.transform;
         score = 0;
         countDown = timeToSelect;
+
+        scoreText.text = "Score: 0";
     }
 
     void Update()
@@ -56,6 +61,9 @@ public class KillTarget : MonoBehaviour
                 Instantiate(killEffect, target.transform.position,
                    target.transform.rotation);
                 score += 1;
+
+                scoreText.text = "Score: " + score;
+
                 countDown = timeToSelect;
                 SetRandomPosition();
             }
