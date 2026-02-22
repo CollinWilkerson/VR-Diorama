@@ -1,13 +1,22 @@
 using UnityEngine;
 using UnityEngine.Rendering;
 using UnityEngine.UI;
+using TMPro;
 
 
 public class EnvironmentLightingControls : MonoBehaviour
 {
+    //these could all be serializefeilds
     public Toggle useSkyboxToggle;
     public Slider skyboxIntensitySlider;
-    public Text skyboxIntensityText;
+    public TextMeshProUGUI skyboxIntensityText;
+    public Toggle enableFog;
+
+    public bool EnableFog
+    {
+        get => RenderSettings.fog;
+        set => RenderSettings.fog = value;
+    }
 
     public bool UseSkybox
     {
@@ -35,6 +44,7 @@ public class EnvironmentLightingControls : MonoBehaviour
     private void Start()
     {
         //sets the toggle to the skybox state
-        useSkyboxToggle.isOn = UseSkybox;
+        useSkyboxToggle.isOn = UseSkybox; 
+        enableFog.isOn = EnableFog;
     }
 }
